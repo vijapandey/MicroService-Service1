@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.6.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.service.app</groupId>
+	<artifactId>service1</artifactId>
+	<version>0.0.1</version>
+	<packaging>jar</packaging> <!-- jar/war -->
+	<name>service1</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <!-- Logging introduction by excluding from here  -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+        </dependency>
+        <!-- Logging  {log4j2.xml or (log4j2.properties) or logback-spring.xml or logback.xml in src/main/resources}-->
+        <dependency>
+  	 	     <groupId>org.springframework.boot</groupId>
+    	  	  <artifactId>spring-boot-starter-log4j2</artifactId>
+  	  </dependency>
+  	  
+  	  <!--Spring boot’s module Actuator allows you to monitor and manage application usages in production environment, without coding and configuration for any of them  -->
+  	  <dependency>
+   		 <groupId>org.springframework.boot</groupId>
+   		 <artifactId>spring-boot-starter-actuator</artifactId>
+	</dependency>
+	
+	<!-- Automatic Restart and Hot Swapping -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- For Refresh config and cloud confiurations -->
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-config</artifactId>
+		     <version>2.1.2.RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		     <version>2.1.2.RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-context</artifactId>
+		    <version>2.1.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session</artifactId>
+			    <version>1.3.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<!--  spring security related jar files in project runtime -->
+		<dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-security</artifactId>
+	    </dependency>
+    
+    	<!-- For WebClient as a part of the Spring Web Reactive module as replacing REST_Template -->
+    	<dependency>
+   		 	<groupId>org.springframework.boot</groupId>
+  		  	<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+		<dependency>
+             <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-starter-test</artifactId>
+              <scope>test</scope>
+         </dependency>
+	 	<dependency>
+             <groupId>io.projectreactor</groupId>
+             <artifactId>reactor-test</artifactId>
+             <scope>test</scope>
+          </dependency>
+    
+    
+	<!--  Mysql is our in-memory database -->
+	  <dependency>
+ 		   <groupId>mysql</groupId>
+  			<artifactId>mysql-connector-java</artifactId>
+  		   <scope>runtime</scope> 
+		<!--     <version>8.0.13</version>-->
+		</dependency>
+
+		
+		<!-- JPA Data (We are going to use Repositories, Entities, Hibernate, etc...) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+       <!--  <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>  -->
+        
+	 <!-- Jpa and hibernate -->
+	<!-- <dependency>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-entitymanager</artifactId>
+    	<version>5.2.3.Final</version>
+	</dependency>
+	<dependency>
+ 		<groupId>org.hibernate</groupId>
+ 		<artifactId>hibernate-core</artifactId>
+		 <version> 5.2.1.Final</version>
+	</dependency> -->
+	
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>2.21.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

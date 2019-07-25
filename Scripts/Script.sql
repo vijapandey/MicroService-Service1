@@ -1,0 +1,2 @@
+use  springbootdb;
+show tables;
