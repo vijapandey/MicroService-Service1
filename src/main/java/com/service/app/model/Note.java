@@ -60,70 +60,70 @@ public class Note implements Serializable{
 	/**
 	 * @return the id
 	 */
-	public final Long getId() {
+	public Long getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public final void setId(Long id) {
+	public  void setId(Long id) {
 		this.id = id;
 	}
 
 	/**
 	 * @return the title
 	 */
-	public final String getTitle() {
+	public  String getTitle() {
 		return title;
 	}
 
 	/**
 	 * @param title the title to set
 	 */
-	public final void setTitle(String title) {
+	public  void setTitle(String title) {
 		this.title = title;
 	}
 
 	/**
 	 * @return the content
 	 */
-	public final String getContent() {
+	public  String getContent() {
 		return content;
 	}
 
 	/**
 	 * @param content the content to set
 	 */
-	public final void setContent(String content) {
+	public  void setContent(String content) {
 		this.content = content;
 	}
 
 	/**
 	 * @return the createdAt
 	 */
-	public final Date getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
 
 	/**
 	 * @param createdAt the createdAt to set
 	 */
-	public final void setCreatedAt(Date createdAt) {
+	public  void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
 	/**
 	 * @return the updatedAt
 	 */
-	public final Date getUpdatedAt() {
+	public  Date getUpdatedAt() {
 		return updatedAt;
 	}
 
 	/**
 	 * @param updatedAt the updatedAt to set
 	 */
-	public final void setUpdatedAt(Date updatedAt) {
+	public  void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
     

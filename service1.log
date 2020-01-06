@@ -1483,3 +1483,37 @@ org.springframework.security.access.AccessDeniedException: Access is denied
 2019-07-24 00:06:48,190 DEBUG org.springframework.jmx.export.annotation.AnnotationMBeanExporter [Thread-15] Unregistering JMX-exposed beans
 2019-07-24 00:06:48,210 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [Thread-15] Shutting down ExecutorService 'mvcTaskExecutor'
 2019-07-24 00:06:48,291 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [Thread-15] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-06 23:30:09,548 INFO com.service.app.Service1Application [restartedMain] The following profiles are active: dev
+2020-01-06 23:30:24,183 INFO com.service.security.SecurityConfig [restartedMain] passwordEncoder : org.springframework.security.crypto.password.DelegatingPasswordEncoder@4d223a43
+2020-01-06 23:30:25,802 INFO com.service.security.OAuthConfiguration [restartedMain] Client_Secret : {bcrypt}$2a$10$UA/tALL.xhHg7JE38TMS..yFjSsbQLWe/dU3oz.l8eZxTq8nOD0FC
+2020-01-06 23:30:25,966 INFO com.service.security.OAuthConfiguration [restartedMain] Oauth configuration server : 1952492056
+2020-01-06 23:30:29,341 INFO com.service.app.Service1Application [restartedMain] Started Service1Application in 26.022 seconds (JVM running for 28.702)
+2020-01-06 23:30:29,350 INFO com.service.app.Service1Application [restartedMain] Started application name : service1 application..... using: mvn spring-boot:run :[Ljava.lang.String;@69f55a08
+2020-01-06 23:30:36,487 DEBUG org.hibernate.SQL [http-nio-8083-exec-2] select userinfo0_.id as id1_2_, userinfo0_.enabled as enabled2_2_, userinfo0_.password as password3_2_, userinfo0_.role as role4_2_, userinfo0_.username as username5_2_ from userinfo userinfo0_ where userinfo0_.username=? and userinfo0_.enabled=?
+2020-01-06 23:30:36,599 INFO com.service.app.service.UserDetailsServiceImpl [http-nio-8083-exec-2] Database result :id : 2 , username : user1, password : $2a$10$7/wqZq31iMl1dETBhlSGZOrtK3FtOf8dJrzW3cdSCB2j0K/q7f1C2, authority : ROLE_USER
+2020-01-06 23:30:36,601 INFO com.service.app.service.UserDetailsServiceImpl [http-nio-8083-exec-2] 0: Role =ROLE_USER, list :1
+2020-01-06 23:31:19,444 DEBUG org.hibernate.SQL [http-nio-8083-exec-3] select userinfo0_.id as id1_2_, userinfo0_.enabled as enabled2_2_, userinfo0_.password as password3_2_, userinfo0_.role as role4_2_, userinfo0_.username as username5_2_ from userinfo userinfo0_ where userinfo0_.username=? and userinfo0_.enabled=?
+2020-01-06 23:31:19,450 INFO com.service.app.service.UserDetailsServiceImpl [http-nio-8083-exec-3] Database result :id : 7 , username : user3, password : $2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu, authority : ROLE_USER
+2020-01-06 23:31:19,450 INFO com.service.app.service.UserDetailsServiceImpl [http-nio-8083-exec-3] 0: Role =ROLE_USER, list :1
+2020-01-06 23:31:37,150 DEBUG org.hibernate.SQL [http-nio-8083-exec-4] select userinfo0_.id as id1_2_, userinfo0_.enabled as enabled2_2_, userinfo0_.password as password3_2_, userinfo0_.role as role4_2_, userinfo0_.username as username5_2_ from userinfo userinfo0_ where userinfo0_.username=? and userinfo0_.enabled=?
+2020-01-06 23:31:37,155 INFO com.service.app.service.UserDetailsServiceImpl [http-nio-8083-exec-4] Database result :id : 1 , username : admin_user3, password : $2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu, authority : ROLE_ADMIN
+2020-01-06 23:31:37,155 INFO com.service.app.service.UserDetailsServiceImpl [http-nio-8083-exec-4] 0: Role =ROLE_ADMIN, list :1
+2020-01-06 23:31:45,864 INFO com.service.app.controller.EmployeeController [http-nio-8083-exec-5] Header content-type = application/json
+2020-01-06 23:31:45,890 INFO com.service.app.controller.EmployeeController [http-nio-8083-exec-5] Header accept = application/json
+2020-01-06 23:31:45,890 INFO com.service.app.controller.EmployeeController [http-nio-8083-exec-5] Header authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYXBpIl0sInVzZXJfbmFtZSI6ImFkbWluX3VzZXIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTU3ODMzNzI5NywiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiJdLCJqdGkiOiI1NjE2YjQ4My0yMjEyLTQyMjUtOTA4Ni0yZDYzMTMyMWJiMGUiLCJjbGllbnRfaWQiOiJ2aWpheS1jbGllbnQtaWQifQ.JLxy8pxmFZ8KlaJ7AdngD-16YYmKZwYSW8iDOf68Z-0
+2020-01-06 23:31:45,890 INFO com.service.app.controller.EmployeeController [http-nio-8083-exec-5] Header user-agent = PostmanRuntime/7.21.0
+2020-01-06 23:31:45,890 INFO com.service.app.controller.EmployeeController [http-nio-8083-exec-5] Header cache-control = no-cache
+2020-01-06 23:31:45,891 INFO com.service.app.controller.EmployeeController [http-nio-8083-exec-5] Header postman-token = dd620527-a62b-42e5-870a-47ce69f0a21a
+2020-01-06 23:31:45,892 INFO com.service.app.controller.EmployeeController [http-nio-8083-exec-5] Header host = localhost:8083
+2020-01-06 23:31:45,892 INFO com.service.app.controller.EmployeeController [http-nio-8083-exec-5] Header accept-encoding = gzip, deflate
+2020-01-06 23:31:45,892 INFO com.service.app.controller.EmployeeController [http-nio-8083-exec-5] Header connection = keep-alive
+2020-01-06 23:31:45,892 INFO com.service.app.controller.EmployeeController [http-nio-8083-exec-5] Get Employee method is calling ....applicationName :service1 application
+2020-01-06 23:31:45,892 INFO com.service.app.controller.EmployeeController [http-nio-8083-exec-5] Property getting using Message Properties class :Goodbye... From Main app properties
+2020-01-06 23:31:45,910 INFO com.service.app.service.Service1Impl [http-nio-8083-exec-5] Get All Employee method is calling ....
+2020-01-06 23:32:00,985 DEBUG org.hibernate.SQL [http-nio-8083-exec-6] select userinfo0_.id as id1_2_, userinfo0_.enabled as enabled2_2_, userinfo0_.password as password3_2_, userinfo0_.role as role4_2_, userinfo0_.username as username5_2_ from userinfo userinfo0_ where userinfo0_.username=? and userinfo0_.enabled=?
+2020-01-06 23:32:00,995 INFO com.service.app.service.UserDetailsServiceImpl [http-nio-8083-exec-6] Database result :id : 1 , username : admin_user3, password : $2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu, authority : ROLE_ADMIN
+2020-01-06 23:32:00,995 INFO com.service.app.service.UserDetailsServiceImpl [http-nio-8083-exec-6] 0: Role =ROLE_ADMIN, list :1
+2020-01-06 23:32:28,664 DEBUG org.hibernate.SQL [http-nio-8083-exec-7] select userinfo0_.id as id1_2_, userinfo0_.enabled as enabled2_2_, userinfo0_.password as password3_2_, userinfo0_.role as role4_2_, userinfo0_.username as username5_2_ from userinfo userinfo0_ where userinfo0_.username=? and userinfo0_.enabled=?
+2020-01-06 23:32:28,669 INFO com.service.app.service.UserDetailsServiceImpl [http-nio-8083-exec-7] Database result :id : 7 , username : user3, password : $2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu, authority : ROLE_USER
+2020-01-06 23:32:28,670 INFO com.service.app.service.UserDetailsServiceImpl [http-nio-8083-exec-7] 0: Role =ROLE_USER, list :1
+2020-01-06 23:33:06,302 DEBUG org.hibernate.SQL [http-nio-8083-exec-8] select note0_.id as id1_0_, note0_.content as content2_0_, note0_.createdAt as createdA3_0_, note0_.title as title4_0_, note0_.updatedAt as updatedA5_0_ from notes note0_

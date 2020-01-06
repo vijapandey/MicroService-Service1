@@ -1,4 +1,5 @@
 package com.service.app;
+/*package com.service.app;
 
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.session.web.context.AbstractHttpSessionApplicationInitializer;
@@ -7,3 +8,4 @@ import org.springframework.session.web.context.AbstractHttpSessionApplicationIni
 public class SessionConfig
 extends AbstractHttpSessionApplicationInitializer {
 }
+*/

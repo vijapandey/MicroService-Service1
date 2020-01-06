@@ -1,0 +1,329 @@
+{
+	"info": {
+		"_postman_id": "2dbb704e-f3ce-4b18-bbfa-8658269e4364",
+		"name": "Spring Boot Security OAuth Example copy",
+		"description": "Spring Boot Security OAuth Example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Generate Token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic aGVuZGktY2xpZW50OmhlbmRpLXNlY3JldA==",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "user1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "publicuser",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8083/service1/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"service1",
+						"oauth",
+						"token"
+					]
+				},
+				"description": "Generate Token"
+			},
+			"response": []
+		},
+		{
+			"name": "Generate Refresh Token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic aGVuZGktY2xpZW50OmhlbmRpLXNlY3JldA=="
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin_user3",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYXBpIl0sInVzZXJfbmFtZSI6ImFkbWluX3VzZXIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIiwidHJ1c3QiXSwiYXRpIjoiY2JmYzMxYzctYjQ0MS00ODBjLTliMmEtZmEzOWY5OTU2ZjMyIiwiZXhwIjoxNTc3OTI0NjYyLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6ImQxYjBlMGM3LWM4YTAtNGIyZi04N2M5LWZjMTgzOWU2MGQ2YSIsImNsaWVudF9pZCI6ImhlbmRpLWNsaWVudCJ9.bjIrs1HAZN8zJOX1ZcLs9nCCbA1jLAi7NiQc2UWDtcM",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8083/service1/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"service1",
+						"oauth",
+						"token"
+					]
+				},
+				"description": "Generate Token"
+			},
+			"response": []
+		},
+		{
+			"name": "Accessing With Token Copy",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8083/service1/api/employees/?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYXBpIl0sInVzZXJfbmFtZSI6ImFkbWluX3VzZXIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIiwidHJ1c3QiXSwiZXhwIjoxNTc3OTA2ODE0LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6IjdjZTYyOTA0LTk5NGYtNDhlZC05YTMxLTUzYTdmMjUzODg4MyIsImNsaWVudF9pZCI6ImhlbmRpLWNsaWVudCJ9.rpT-HRxO79_bQu1Xm-bH5jvCyw_CmLVsz9L8cPjlpQs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"service1",
+						"api",
+						"employees",
+						""
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYXBpIl0sInVzZXJfbmFtZSI6ImFkbWluX3VzZXIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIiwidHJ1c3QiXSwiZXhwIjoxNTc3OTA2ODE0LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6IjdjZTYyOTA0LTk5NGYtNDhlZC05YTMxLTUzYTdmMjUzODg4MyIsImNsaWVudF9pZCI6ImhlbmRpLWNsaWVudCJ9.rpT-HRxO79_bQu1Xm-bH5jvCyw_CmLVsz9L8cPjlpQs"
+						}
+					]
+				},
+				"description": "Accessing With Token"
+			},
+			"response": []
+		},
+		{
+			"name": "Token_USER",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYXBpIl0sInVzZXJfbmFtZSI6InVzZXIxIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTU3ODI0ODQ0NywiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImp0aSI6ImQ0ODk3NzA0LWZiMTEtNDJkYy05YjNlLTlkNzQyYjQ1NWM1ZSIsImNsaWVudF9pZCI6InZpamF5LWNsaWVudC1pZCJ9.WKCh8G9s1fDi-Dcw7EgOmFdlPK0Q57TIr8rvBGLYH-E",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+						"key": "Authorization",
+						"value": "Basic dmlqYXktY2xpZW50LWlkOnZpamF5LXNlY3JldC1pbmZv",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8083/service1/api/employees/?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"service1",
+						"api",
+						"employees",
+						""
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYXBpIl0sInVzZXJfbmFtZSI6ImhlbmRpIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTU3NzkwNjQyMiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiJdLCJqdGkiOiJiYjQyNmIxMy0zM2I2LTQ3MDYtOTgyNy0wYjRjYjhiY2I0NTciLCJjbGllbnRfaWQiOiJoZW5kaS1jbGllbnQifQ.W5r6RmGN-vzcFr3MBwxe6oYYXXoXGuDuyDP4a5S9YGA",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Accessing Without Token_LOCAL"
+			},
+			"response": []
+		},
+		{
+			"name": "Token_ADMIN",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYXBpIl0sInVzZXJfbmFtZSI6ImFkbWluX3VzZXIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTU3ODMzNDc4OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiJdLCJqdGkiOiI2OTEwMDVmOC01NjJkLTQ0ODYtYWFhMy0zYmNmNDgzZGQ1MDEiLCJjbGllbnRfaWQiOiJ2aWpheS1jbGllbnQtaWQifQ.1f6sdebcFYuVmwVWrvSrdNGT22bdFLY20XpcWonTfkM",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+						"key": "Authorization",
+						"value": "Basic dmlqYXktY2xpZW50LWlkOnZpamF5LXNlY3JldC1pbmZv",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8083/service1/api/employees/?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"service1",
+						"api",
+						"employees",
+						""
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYXBpIl0sInVzZXJfbmFtZSI6ImhlbmRpIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTU3NzkwNjQyMiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiJdLCJqdGkiOiJiYjQyNmIxMy0zM2I2LTQ3MDYtOTgyNy0wYjRjYjhiY2I0NTciLCJjbGllbnRfaWQiOiJoZW5kaS1jbGllbnQifQ.W5r6RmGN-vzcFr3MBwxe6oYYXXoXGuDuyDP4a5S9YGA",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Accessing Without Token_LOCAL"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
