@@ -4,6 +4,7 @@
 package com.service.app.controller;
 
 import java.net.URI;
+import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,7 +50,7 @@ import com.service.app.service.Service1;
  */
  
 @RestController
-@RequestMapping(path = "/employees")
+@RequestMapping(path = "/api/employees")
 public class EmployeeController {
   
     private static final Logger logger = LoggerFactory.getLogger(EmployeeController.class);
@@ -64,6 +66,9 @@ public class EmployeeController {
 	
 	
     @GetMapping(path="/", produces = "application/json", consumes = "application/json", headers = "Accept=application/json")
+  //  @RolesAllowed("ADMIN")
+  //  @PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
     public List<Employee> getEmployees(@RequestHeader MultiValueMap<String, String> headers) throws Exception {
     	headers.forEach((key, value) -> {
     		logger.info(String.format("Header %s = %s", key, value.stream().collect(Collectors.joining("|"))));
@@ -119,8 +124,9 @@ public class EmployeeController {
         return service.getEmployeeCompanyById(empId);
     }
     
-    @GetMapping(path="/skills", produces = "application/json", consumes = "application/json")
-    @RolesAllowed("ROLE_USER")
+    @GetMapping(path="/skills", produces = "application/json", consumes = "application/json", headers = "Accept=application/json")
+  //  @RolesAllowed("ROLE_USER")
+    @PreAuthorize("hasRole('ADMIN')")
     public List<EmployeeSkills> getEmployeeSkills() {
     	logger.debug("Get Employee Skills method is calling :");
         return service.getEmployeeSkills();
@@ -133,4 +139,11 @@ public class EmployeeController {
 	 
 	@GetMapping(value = "foos/duplicate", produces = MediaType.APPLICATION_XML_VALUE)
 	public int duplicateEx() {	    return 0;	}
+	
+	@GetMapping
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<Principal> get(final Principal principal) {
+        return ResponseEntity.ok(principal);
+    }
+
 }

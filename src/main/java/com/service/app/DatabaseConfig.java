@@ -22,10 +22,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class DatabaseConfig {
 
-	// ------------------------
-	// PUBLIC METHODS
-	// ------------------------
-
 	/**
 	 * DataSource definition for database connection. Settings are read from the
 	 * application.properties file (using the env object).
@@ -33,10 +29,10 @@ public class DatabaseConfig {
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName(env.getProperty("db.driver"));
-		dataSource.setUrl(env.getProperty("db.url"));
-		dataSource.setUsername(env.getProperty("db.username"));
-		dataSource.setPassword(env.getProperty("db.password"));
+		dataSource.setDriverClassName(env.getProperty("spring.datasource.driverClassName"));
+		dataSource.setUrl(env.getProperty("spring.datasource.url"));
+		dataSource.setUsername(env.getProperty("spring.datasource.username"));
+		dataSource.setPassword(env.getProperty("spring.datasource.password"));
 		return dataSource;
 	}
 
@@ -87,10 +83,12 @@ public class DatabaseConfig {
 		return new PersistenceExceptionTranslationPostProcessor();
 	}
 
-	// ------------------------
-	// PRIVATE FIELDS
-	// ------------------------
-
+	
+	/* @Bean
+	    public DataSource dataSource(DataSourceProperties dataSourceProperties) {
+	        return dataSourceProperties.initializeDataSourceBuilder().build();
+	    }*/
+	 
 	@Autowired
 	private Environment env;
 
